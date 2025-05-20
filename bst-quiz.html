@@ -1,0 +1,395 @@
+<!-- The full updated HTML file with the 3rd question added -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BST Quiz</title>
+    <style>
+      body {
+        font-family: "Nunito", "PT Sans", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+      }
+
+      .feedback {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .quiz-header {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        color: white;
+        padding: 16px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-title {
+        font-family: "Nunito", "Courier New", Courier, monospace;
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .brand-title .white {
+        color: white;
+      }
+
+      .brand-title .green {
+        color: #b6e529;
+      }
+
+      .home-btn {
+        background-color: #b6e529;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #212529;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      }
+
+      .home-btn:hover {
+        background-color: #a4cd21;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .quiz-content {
+        padding: 40px 30px 100px;
+        text-align: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .question {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        color: #343a40;
+        line-height: 1.4;
+      }
+
+      .question strong {
+        font-weight: 700;
+        color: #4361ee;
+      }
+
+      .question-img {
+        margin: 30px auto;
+        display: block;
+        width: 450px;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      }
+
+      #question2 .question-img {
+        width: 650px;
+      }
+
+      .question-label {
+        font-size: 14px;
+        color: #6c757d;
+        margin-bottom: 30px;
+        font-style: italic;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      #question2 .options {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin: 10px 5px;
+        background-color: #fff;
+        padding: 8px 14px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #e9ecef;
+      }
+
+      .option:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        border-color: #4361ee;
+      }
+
+      .option input {
+        margin-right: 8px;
+        accent-color: #4361ee;
+        width: 16px;
+        height: 16px;
+      }
+
+      .show-answer-btn {
+        margin-top: 20px;
+        background-color: #4361ee;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .show-answer-btn:hover {
+        background-color: #3a56d4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        gap: 12px;
+        font-weight: bold;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-bar button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Nunito", sans-serif;
+        transition: all 0.2s ease;
+      }
+
+      .nav-bar button:hover {
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+
+      .nav-bar .current {
+        background-color: #fff;
+        color: #4361ee;
+        padding: 4px 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-header">
+      <h2 class="brand-title">
+        <span class="white">Algo</span><span class="green">Kids</span>
+      </h2>
+      <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+
+    <div class="quiz-content">
+      <!-- Q1 -->
+      <div class="question-container" id="question1">
+        <div class="question">
+          1. What is the value of the <strong>maximum</strong> element in this
+          BST?
+        </div>
+        <img src="img/BSTQ1.png" alt="BST Diagram" class="question-img" />
+        <div class="question-label">BST Diagram</div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q1" value="4" /> 4</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="80" /> 80</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="87" /> 87</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ1()">Show Answer</button>
+        <div id="feedback1" class="feedback"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-container" id="question2" style="display: none">
+        <div class="question">
+          2. Given the BST as shown in the picture, click the sequence of
+          vertices that are visited by <strong>Search(55)</strong>.
+        </div>
+        <img src="img/BSTQ2.png" alt="BST Diagram" class="question-img" />
+        <div class="question-label">Choose the nodes in correct order</div>
+        <div class="options">
+          <label class="option"
+            ><input type="checkbox" name="q2" value="30" /> 30</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="31" /> 31</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="34" /> 34</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="46" /> 46</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="48" /> 48</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="55" /> 55</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="74" /> 74</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="86" /> 86</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="87" /> 87</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="93" /> 93</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="94" /> 94</label
+          >
+          <label class="option"
+            ><input type="checkbox" name="q2" value="98" /> 98</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ2()">Show Answer</button>
+        <div id="feedback2" class="feedback"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-container" id="question3" style="display: none">
+        <div class="question">
+          3. True or False: The <strong>largest</strong> element in any
+          non-empty BST always has <strong>no right child</strong>.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q3" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ3()">Show Answer</button>
+        <div id="feedback3" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="nav-bar">
+      <button id="prevBtn">Previous question</button>
+      <button class="current" id="q1Btn">1</button>
+      <button id="q2Btn">2</button>
+      <button id="q3Btn">3</button>
+      <button id="nextBtn">Next question</button>
+    </div>
+
+    <script>
+      let currentQuestion = 1;
+
+      function showQuestion(num) {
+        document
+          .querySelectorAll(".question-container")
+          .forEach((q) => (q.style.display = "none"));
+        document.getElementById(`question${num}`).style.display = "block";
+        currentQuestion = num;
+        document
+          .querySelectorAll(".nav-bar button")
+          .forEach((btn) => btn.classList.remove("current"));
+        document.getElementById(`q${num}Btn`).classList.add("current");
+      }
+
+      document.getElementById("nextBtn").onclick = () => {
+        if (currentQuestion < 3) showQuestion(currentQuestion + 1);
+      };
+      document.getElementById("prevBtn").onclick = () => {
+        if (currentQuestion > 1) showQuestion(currentQuestion - 1);
+      };
+      document.getElementById("q1Btn").onclick = () => showQuestion(1);
+      document.getElementById("q2Btn").onclick = () => showQuestion(2);
+      document.getElementById("q3Btn").onclick = () => showQuestion(3);
+
+      function checkQ1() {
+        const selected = document.querySelector('input[name="q1"]:checked');
+        const feedback = document.getElementById("feedback1");
+        const correct = "87";
+        if (!selected) {
+          feedback.textContent = "❗ Please select an answer.";
+          feedback.style.color = "red";
+        } else if (selected.value === correct) {
+          feedback.textContent = "✅ Correct! 87 is the max.";
+          feedback.style.color = "green";
+        } else {
+          feedback.innerHTML = `❌ Incorrect. You selected <strong>${selected.value}</strong>. Correct: <strong>${correct}</strong>.`;
+          feedback.style.color = "red";
+        }
+      }
+
+      function checkQ2() {
+        const selected = [
+          ...document.querySelectorAll('input[name="q2"]:checked'),
+        ].map((cb) => cb.value);
+        const correctSequence = ["48", "94", "93", "86", "55"];
+        const feedback = document.getElementById("feedback2");
+        if (selected.length === 0) {
+          feedback.innerHTML =
+            "❗ You did not answer this question.<br>The correct answer is: <strong>48, 94, 93, 86, 55</strong>";
+          feedback.style.color = "red";
+          return;
+        }
+        const isCorrect =
+          JSON.stringify(selected) === JSON.stringify(correctSequence);
+        if (isCorrect) {
+          feedback.textContent = "✅ Correct path followed!";
+          feedback.style.color = "green";
+        } else {
+          feedback.innerHTML = `❌ Incorrect sequence.<br>You selected: <strong>${selected.join(
+            ", "
+          )}</strong><br>Correct answer: <strong>${correctSequence.join(
+            ", "
+          )}</strong>`;
+          feedback.style.color = "red";
+        }
+      }
+
+      function checkQ3() {
+        const selected = document.querySelector('input[name="q3"]:checked');
+        const feedback = document.getElementById("feedback3");
+        const correct = "True";
+        if (!selected) {
+          feedback.textContent = "❗ Please select an answer.";
+          feedback.style.color = "red";
+        } else if (selected.value === correct) {
+          feedback.textContent =
+            "✅ Correct! The largest node has no right child.";
+          feedback.style.color = "green";
+        } else {
+          feedback.innerHTML = `❌ Incorrect. You selected <strong>${selected.value}</strong>. Correct: <strong>${correct}</strong>.`;
+          feedback.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

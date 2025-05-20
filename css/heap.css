@@ -1,0 +1,390 @@
+@charset "utf-8";
+
+/* Modern color scheme and variables */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+}
+
+/*all action pullout (input) stuff here*/
+#buildv1-input {
+  position: fixed;
+  bottom: 173px;
+  left: 196px;
+  background: linear-gradient(to right, #4361ee, #3a56d4);
+  width: 0px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
+}
+#buildv1-input input {
+  width: 200px;
+  background: #f8f9fa;
+  color: #343a40;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  font-family: "Nunito", sans-serif;
+}
+#buildv1-go {
+  position: fixed;
+  bottom: 173px;
+  left: 396px;
+  width: 0px;
+  background: #4361ee;
+  color: white;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#buildv1-go p {
+  padding: 8px 8px 7px;
+  font-weight: 600;
+  margin: 0;
+}
+#buildv1-go:hover {
+  background: #3a56d4;
+}
+#buildv1-sample {
+  position: fixed;
+  bottom: 173px;
+  left: 433px;
+  width: 0px;
+  background: #7209b7;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#buildv1-sample p {
+  padding: 8px 8px 7px;
+  font-weight: 600;
+  margin: 0;
+}
+#buildv1-sample:hover {
+  background: #5a078f;
+}
+
+#buildv2-input {
+  position: fixed;
+  bottom: 146px;
+  left: 196px;
+  background: linear-gradient(to right, #4361ee, #3a56d4);
+  width: 0px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
+}
+#buildv2-input input {
+  width: 200px;
+  background: #f8f9fa;
+  color: #343a40;
+  padding: 6px 8px 5px;
+  border: none;
+  border-radius: 3px;
+  font-family: "Nunito", sans-serif;
+}
+#buildv2-go {
+  position: fixed;
+  bottom: 146px;
+  left: 396px;
+  width: 0px;
+  background: #4361ee;
+  color: white;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#buildv2-go p {
+  padding: 5px 8px;
+  font-weight: 600;
+  margin: 0;
+}
+#buildv2-go:hover {
+  background: #3a56d4;
+}
+#buildv2-sample {
+  position: fixed;
+  bottom: 146px;
+  left: 433px;
+  width: 0px;
+  background: #7209b7;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#buildv2-sample p {
+  padding: 5px 8px;
+  font-weight: 600;
+  margin: 0;
+}
+#buildv2-sample:hover {
+  background: #5a078f;
+}
+
+#insert-input {
+  position: fixed;
+  bottom: 119px;
+  left: 196px;
+  background: linear-gradient(to right, #4361ee, #3a56d4);
+  width: 0px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: width 0.3s ease;
+}
+#insert-input input {
+  width: 40px;
+  background: #f8f9fa;
+  color: #343a40;
+  padding: 6px 8px 5px;
+  border: none;
+  border-radius: 3px;
+  font-family: "Nunito", sans-serif;
+}
+#insert-go {
+  position: fixed;
+  bottom: 119px;
+  left: 228px;
+  width: 0px;
+  background: #4361ee;
+  color: white;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+#insert-go p {
+  padding: 5px 8px;
+  font-weight: 600;
+  margin: 0;
+}
+#insert-go:hover {
+  background: #3a56d4;
+}
+
+/*all action pullout (error) stuff here*/
+.err {
+  position: fixed;
+  color: #ef476f;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+#buildv1-err {
+  bottom: 173px;
+  left: 538px;
+  padding: 8px 0px 7px;
+}
+#buildv2-err {
+  bottom: 146px;
+  left: 538px;
+  padding: 5px 0px;
+}
+#insert-err {
+  bottom: 119px;
+  left: 272px;
+  padding: 5px 0px;
+}
+#extractmax-err {
+  bottom: 92px;
+  left: 201px;
+  padding: 5px 0px;
+}
+#heapsort-err {
+  bottom: 60px;
+  left: 201px;
+  padding: 8px 0px 7px;
+}
+
+/*all tutorial stuff here*/
+#heap-tutorial-1 {
+  top: 60px;
+  left: 60px;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-2 {
+  bottom: 230px;
+  left: 60px;
+  width: 220px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-2:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: white;
+  margin-left: -10px;
+}
+#heap-tutorial-3 {
+  top: 300px;
+  left: 50%;
+  width: 200px;
+  margin-left: -110px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-3:before {
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: white;
+  margin-left: -10px;
+}
+#heap-tutorial-4 {
+  bottom: 335px;
+  right: 150px;
+  width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-4:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: white;
+  margin-left: -10px;
+}
+#heap-tutorial-5 {
+  bottom: 275px;
+  right: 170px;
+  width: 180px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-5:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: white;
+  margin-left: -10px;
+}
+#heap-tutorial-6 {
+  bottom: 70px;
+  left: 50%;
+  width: 220px;
+  margin-left: -120px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-6:before {
+  top: 100%;
+  left: 50%;
+  border-top-color: white;
+  margin-left: -10px;
+}
+#heap-tutorial-7 {
+  top: 70px;
+  right: 60px;
+  width: 150px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  border-left: 4px solid #4361ee;
+  font-family: "Nunito", sans-serif;
+}
+#heap-tutorial-7:before {
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: white;
+  margin-left: -10px;
+}
+
+/* Button and input transitions */
+#buildv1-input input:focus,
+#buildv2-input input:focus,
+#insert-input input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.3);
+}
+
+.tutorial-next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+  color: #4361ee;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tutorial-next:hover {
+  color: #3a56d4;
+}
+
+.tutorial-next img {
+  margin-left: 6px;
+  transition: transform 0.3s;
+}
+
+.tutorial-next:hover img {
+  transform: translateX(3px);
+}
+
+/* Add modern-looking animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.execAction:hover {
+  animation: pulse 0.6s ease-in-out;
+}

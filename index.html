@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlgoKids - Home</title>
+  <link rel="icon" type="image/jpg" href="img/bp.jpg" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/home.css">
+
+  <!-- Fonts -->
+  <link href="fonts/silkscreen/stylesheet.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+
+  <style>
+    body.creative-wizardry {
+      background: linear-gradient(-45deg, #00c6ff, #0072ff, #1e3c72, #2a5298);
+      background-size: 400% 400%;
+      animation: gradientFlow 15s ease infinite;
+      position: relative;
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: white;
+      margin-top: 30px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #dbeafe;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .li-wrapper {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .li-wrapper:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+      position: relative;
+    }
+
+    .training-btn {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .training-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body class="creative-wizardry">
+  <div id="top-bar">
+    <a id="home" href="">Algo<span class="colour">Kids</span></a>
+    <a id="logout-btn" href="login.html">Logout</a>
+  </div>
+
+  <h1>Algo<span class="colour">Kids</span></h1>
+  <h2>visualising data structures and algorithms</h2>
+
+  <form id="searchbar">
+    <input id="search" type="text" autocomplete="off" value="Search...">
+    <div id="show-filters" title="show/hide filters"><img src="img/arrow_white.png"/></div>
+  </form>
+
+  <div id="active-tags"></div>
+  <div id="emptySearchMsg">No results were found.</div>
+  <div id="filters-and-lines">
+    <div class="line" style="margin-top: 20px;"></div>
+    <div id="filters"></div>
+    <div class="line"></div>
+  </div>
+
+  <div id="main">
+<ul id="list">
+	
+	<li class="viz" id="sorting">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="array.html">
+                <img src="img/sorting.gif" alt="Array Animation">
+                <img class="static" src="img/sorting.jpg" alt="Array Static">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="array.html">Array</a></h3>
+                    <div class="training-buttons">
+                        <a href="array-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="array-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    
+    
+    <li class="viz" id="bst">
+        <div class="li-wrapper">
+          <a class="thumbnail" href="bst.html">
+            <img src="img/bst.gif">
+            <img class="static" src="img/bst.jpg">
+          </a>
+          <div class="info">
+            <div class="info-header">
+              <h3><a href="bst.html">Binary Search Tree, AVL Tree</a></h3>
+              <div class="training-buttons">
+                <!-- Learn button now goes to bst-details.html -->
+                <a href="bst-details.html" class="training-btn green">
+                  <span>Learn</span>
+                  <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                </a>
+      
+                <!-- Assessment button goes to bst-quiz.html -->
+                <a href="bst-quiz.html" class="training-btn orange">
+                  <span>Assessment</span>
+                </a>
+              </div>
+            </div>
+            <div class="indv-viz-filters"></div>
+          </div>
+        </div>
+      </li>
+      
+      <li class="viz" id="heap">
+        <div class="li-wrapper">
+          <a class="thumbnail" href="heap.html">
+            <img src="img/heap.gif">
+            <img class="static" src="img/heap.jpg">
+          </a>
+          <div class="info">
+            <div class="info-header">
+              <h3><a href="heap.html">Binary Heap</a></h3>
+              <div class="training-buttons">
+                <a href="heap-details.html" class="training-btn green">
+                  <span>Learn</span>
+                  <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                </a>
+                <a href="heap-quiz.html" class="training-btn orange">
+                  <span>Assessment</span>
+                </a>
+              </div>
+            </div>
+            <div class="indv-viz-filters"></div>
+          </div>
+        </div>
+      </li>
+      <li class="viz" id="union">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="ufds.html">
+                <img src="img/union.gif">
+                <img class="static" src="img/union.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="ufds.html">Union Find</a></h3>
+                    <div class="training-buttons">
+                        <a href="ufds-details.html" class="training-btn green">
+                          <span>Learn</span>
+                          <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="ufds-quiz.html" class="training-btn orange">
+                          <span>Assessment</span>
+                        </a>
+                      </div>                      
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    <li class="viz" id="linked">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="list.html"> 
+                <img src="img/lists.gif">
+                <img class="static" src="img/list.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="list-details.html">Linked List, Stack, Queue</a></h3>
+                    <div class="training-buttons">
+                        <a href="list-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="list-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    <li class="viz" id="bitmask">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="bitmask.html">
+                <img src="img/bitmask.gif">
+                <img class="static" src="img/bitmask.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="bitmask.html">Bitmask</a></h3>
+                    <div class="training-buttons">
+                        <a href="bitmask-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="bitmask-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>                    
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    <li class="viz" id="graphs">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="graphs.html">
+                <img src="img/graphs.gif">
+                <img class="static" src="img/graphs.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="graphs.html">Graphs</a></h3>
+                    <div class="training-buttons">
+                        <a href="graphs-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="graphs-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    <li class="viz" id="mst">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="mst.html">
+                <img src="img/mst.gif">
+                <img class="static" src="img/mst.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="mst.html">Minimum Spanning Tree</a></h3>
+                    <div class="training-buttons">
+                        <a href="mst-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="mst-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>                    
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+    
+    
+    <li class="viz" id="sssp">
+        <div class="li-wrapper">
+            <a class="thumbnail" href="sssp.html">
+                <img src="img/sssp.gif">
+                <img class="static" src="img/sssp.jpg">
+            </a>
+            <div class="info">
+                <div class="info-header">
+                    <h3><a href="sssp-details.html">Single-Source Shortest Paths</a></h3>
+                    <div class="training-buttons">
+                        <a href="sssp-details.html" class="training-btn green">
+                            <span>Learn</span>
+                            <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                        </a>
+                        <a href="sssp-quiz.html" class="training-btn orange">
+                            <span>Assessment</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="indv-viz-filters"></div>
+            </div>
+        </div>
+    </li>
+   <li class="viz" id="suffixtree">
+    <div class="li-wrapper">
+        <a class="thumbnail" href="suffixtree.html">
+            <img src="img/suffixtree.gif">
+            <img class="static" src="img/suffixtree.jpg">
+        </a>
+        <div class="info">
+            <div class="info-header">
+                <h3><a href="suffixtree-details.html">Suffix Tree</a></h3>
+                <div class="training-buttons">
+                    <a href="suffixtree-details.html" class="training-btn green">
+                        <span>Learn</span>
+                        <img src="img/pencil.png" alt="Edit" class="pencil-icon">
+                    </a>
+                    <a href="suffixtree-quiz.html" class="training-btn orange">
+                        <span>Assessment</span>
+                    </a>
+                </div>
+            </div>
+            <div class="indv-viz-filters"></div>
+        </div>
+    </div>
+</li>
+    
+</ul>
+</div>
+
+  <div id="bottom-bar">
+    <a id="trigger-about">About</a>
+    <a id="trigger-team">Team</a>
+    <a id="trigger-terms">Terms of use</a>
+  </div>
+
+  <div id="dark-overlay"></div>
+  <div id="about" class="overlays"></div>
+  <div id="team" class="overlays"></div>
+  <div id="termsofuse" class="overlays"></div>
+
+  <!-- JS -->
+  <script src="js/external/jquery-1.10.2.js"></script>
+  <script src="js/home.js"></script>
+  <script src="js/common.js"></script>
+</body>
+</html>

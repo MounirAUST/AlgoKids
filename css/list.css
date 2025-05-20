@@ -1,0 +1,461 @@
+/* ===== Modern list.css ===== */
+/* Enhanced styling for Linked List, Stack, Queue, and related visualizations */
+
+:root {
+  /* Colors */
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --primary-light: #bac8ff;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+/* ===== Video styling ===== */
+.video {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/* ===== Action pullout menu styles ===== */
+.create,
+.search,
+.insert,
+.remove {
+  position: absolute;
+  left: 196px; /* Preserving original positioning */
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  min-width: 160px;
+  z-index: 999;
+  display: none;
+  box-shadow: var(--shadow);
+}
+
+.create {
+  bottom: 146px;
+}
+.search {
+  bottom: 119px;
+}
+.insert {
+  bottom: 92px;
+}
+.remove {
+  bottom: 65px;
+}
+
+/* Menu option styling */
+.new-menu-option {
+  margin: 0.3rem 0;
+  transition: var(--transition);
+}
+
+.coloured-menu-option {
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: var(--border-radius-sm);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.coloured-menu-option:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.coloured-menu-option p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Input styling within menus */
+.new-menu-option input {
+  background-color: var(--white);
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.new-menu-option input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.25);
+  outline: none;
+}
+
+/* Create menu inputs */
+#createfixedsize-input input,
+#removekth-input input {
+  width: 25px;
+  padding: 8px;
+  margin-right: 0.5rem;
+}
+
+#createuserdefined-input input {
+  width: 75px;
+  padding: 8px;
+  margin-right: 0.5rem;
+}
+
+/* Insert menu inputs */
+#insertkth-input input,
+#inserthead-input input,
+#inserttail-input input {
+  width: 25px;
+  padding: 8px;
+  margin-right: 0.5rem;
+}
+
+/* GO buttons styling */
+#createfixedsize-go,
+#createuserdefined-go,
+#insertkth-go,
+#inserthead-go,
+#inserttail-go,
+#removekth-go {
+  background-color: var(--success);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#createfixedsize-go:hover,
+#createuserdefined-go:hover,
+#insertkth-go:hover,
+#inserthead-go:hover,
+#inserttail-go:hover,
+#removekth-go:hover {
+  background-color: #05b587;
+  transform: translateY(-2px);
+}
+
+#createfixedsize-go p,
+#createuserdefined-go p,
+#insertkth-go p,
+#inserthead-go p,
+#inserttail-go p,
+#removekth-go p {
+  padding: 8px 8px 7px;
+  margin: 0;
+}
+
+/* Stack/Queue specific inputs */
+#pushtop-input input,
+#enqueueback-input input,
+#insert-deque-input input {
+  width: 25px;
+  padding: 6px 8px 5px;
+  margin-right: 0.5rem;
+}
+
+#pushtop-go,
+#enqueueback-go {
+  background-color: var(--success);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#pushtop-go:hover,
+#enqueueback-go:hover {
+  background-color: #05b587;
+  transform: translateY(-2px);
+}
+
+#pushtop-go p,
+#enqueueback-go p {
+  padding: 5px 8px;
+  margin: 0;
+}
+
+/* Deque specific buttons */
+#search-peek-front,
+#search-peek-back,
+#insert-deque-front,
+#insert-deque-back,
+#remove-deque-front,
+#remove-deque-back {
+  padding: 5px 8px;
+  background-color: var(--primary);
+  color: var(--white);
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#search-peek-front:hover,
+#search-peek-back:hover,
+#insert-deque-front:hover,
+#insert-deque-back:hover,
+#remove-deque-front:hover,
+#remove-deque-back:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Input fields - maintaining widths */
+#search-input input {
+  width: 25px;
+  padding: 6px 8px 5px;
+}
+
+#search-go p,
+#find-min p,
+#find-max p,
+#insert-head p,
+#insert-tail p,
+#insert-kth p,
+#remove-head p,
+#remove-tail p,
+#remove-kth p {
+  padding: 5px 8px;
+  margin: 0;
+}
+
+/* Error messages */
+.err {
+  color: var(--danger);
+  font-size: 0.875rem;
+  padding: 5px 0;
+  font-weight: 600;
+}
+
+/* ===== Tutorial Dialog Styling ===== */
+#list-tutorial-1,
+#list-tutorial-2,
+#list-tutorial-3,
+#list-tutorial-4,
+#list-tutorial-5,
+#list-tutorial-6,
+#list-tutorial-7,
+#list-tutorial-8 {
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+/* Maintaining tutorial positions */
+#list-tutorial-1 {
+  top: 60px;
+  left: 60px;
+  width: 250px;
+}
+
+#list-tutorial-2 {
+  top: 60px;
+  left: 580px;
+  width: 230px;
+}
+
+#list-tutorial-2:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+#list-tutorial-3 {
+  bottom: 200px;
+  left: 60px;
+  width: 220px;
+}
+
+#list-tutorial-3:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#list-tutorial-4 {
+  top: 200px;
+  left: 50%;
+  width: 200px;
+  margin-left: -110px;
+}
+
+#list-tutorial-4:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+#list-tutorial-5 {
+  bottom: 335px;
+  right: 150px;
+  width: 200px;
+}
+
+#list-tutorial-5:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#list-tutorial-6 {
+  bottom: 275px;
+  right: 170px;
+  width: 180px;
+}
+
+#list-tutorial-6:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#list-tutorial-7 {
+  bottom: 70px;
+  left: 50%;
+  width: 220px;
+  margin-left: -120px;
+}
+
+#list-tutorial-7:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#list-tutorial-8 {
+  top: 70px;
+  right: 60px;
+  width: 150px;
+}
+
+#list-tutorial-8:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+.tutorial-next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tutorial-next:hover {
+  color: var(--primary-dark);
+}
+
+.tutorial-next img {
+  width: 12px;
+  height: 12px;
+  margin-left: 0.5rem;
+}
+
+/* Animations for improved UX */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.create.active,
+.search.active,
+.insert.active,
+.remove.active {
+  display: block;
+  animation: slideIn 0.3s ease-out;
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visualizations – Array</title>
+<link rel="icon" type="image/jpg" href="img/bp.jpg" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/viz.css" />
+    <link rel="stylesheet" href="css/array.css" />
+    <link href="fonts/silkscreen/stylesheet.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" />
+
+
+    <!-- Inline adjustments for improved layout -->
+    <style>
+      /* Center visualization area */
+      #viz {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        background-color: #f8f9fa;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Container sizing */
+     #viz {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  z-index: 3; /* make sure it's above the background layers */
+  position: relative;
+}
+
+
+      /* Title styling */
+      #viz h2 {
+        font-size: 2.2rem;
+        margin-bottom: 24px;
+        text-align: center;
+        color: #3a54d4;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      /* Controls layout */
+      .controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+      }
+
+      .controls .control-row {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .controls input,
+      .controls button {
+        padding: 12px 16px;
+        font-size: 1rem;
+        border-radius: 6px;
+        transition: all 0.2s ease;
+      }
+
+      .controls input {
+        border: 2px solid #e0e0e0;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+        color: #424242;
+      }
+
+      .controls input:focus {
+        border-color: #4361ee;
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+      }
+
+      .controls button {
+        background: linear-gradient(to right, #4361ee, #3a54d4);
+        color: white;
+        border: none;
+        font-weight: 600;
+        box-shadow: 0 2px 6px rgba(67, 97, 238, 0.25);
+        cursor: pointer;
+      }
+
+      .controls button:hover {
+        background: linear-gradient(to right, #3a54d4, #324bc0);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(67, 97, 238, 0.35);
+      }
+
+      .controls button:active {
+        transform: translateY(0);
+      }
+
+      /* Message panel for inline alerts */
+      #message {
+        min-height: 1.5rem;
+        color: #d32f2f;
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 6px;
+        background-color: rgba(211, 47, 47, 0.08);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      #message:not(:empty) {
+        opacity: 1;
+      }
+
+      /* Array items horizontal and centered */
+      #array-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: thin;
+        scrollbar-color: #b0bec5 #f1f3f5;
+      }
+
+      #array-container::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      #array-container::-webkit-scrollbar-track {
+        background: #f1f3f5;
+        border-radius: 3px;
+      }
+
+      #array-container::-webkit-scrollbar-thumb {
+        background-color: #b0bec5;
+        border-radius: 3px;
+      }
+
+      .array-item {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        background: #e8f5e9;
+        border: 2px solid #00796b;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: #00695c;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+      }
+
+      .array-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+      }
+
+      .highlight {
+        background: #fff8e1 !important;
+        border-color: #ffb300 !important;
+        color: #e65100 !important;
+        animation: pulse 1.5s infinite;
+        box-shadow: 0 0 15px rgba(255, 179, 0, 0.5) !important;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 179, 0, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 10px rgba(255, 179, 0, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 179, 0, 0);
+        }
+      }
+    </style>
+
+    <!-- Fonts -->
+    <link
+      href="fonts/silkscreen/stylesheet.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=PT+Sans:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  
+  <body>
+    <body class="creative-wizardry">
+
+    <!-- 🔷 INTRO POPUP -->
+<div id="intro-popup" style="
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  z-index: 9999;">
+  <h2>Welcome to Array Visualizer!</h2>
+  <p>
+    An <strong>Array</strong> is a data structure that stores elements in a fixed-size, sequential order.
+    Each element can be accessed by its index.<br><br>
+    💡 You can <strong>Create</strong> a random array, <strong>Insert</strong> a value at a specific index,
+    <strong>Delete</strong>, <strong>Update</strong>, or <strong>Search</strong> for values using the controls below.<br><br>
+    Watch how changes reflect immediately in the array structure!
+  </p>
+  <button onclick="closeIntro()" style="
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #5c6bc0;
+    color: white;
+    border: none;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;">Got it!</button>
+</div>
+
+<div id="intro-overlay" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 9998;"></div>
+<script>
+  function closeIntro() {
+    document.getElementById('intro-popup').style.display = 'none';
+    document.getElementById('intro-overlay').style.display = 'none';
+  }
+</script>
+
+
+    <!-- Top Bar -->
+    <div id="top-bar">
+      <a id="home" href="index.html"
+        >Algo<span class="colour">Kids</span><span class="colour"></span
+      ></a>
+      <span id="title">
+        <a id="title-array" class="selected-viz">Array</a>
+      </span>
+    </div>
+
+    <!-- Visualization Area -->
+    <div id="viz">
+      <div class="container">
+        <h2>Array Visualization</h2>
+        <div class="controls">
+          <div class="control-row">
+            <button id="create-array">Create Random Array</button>
+          </div>
+          <div class="control-row">
+            <input type="number" id="insert-value" placeholder="Value" />
+            <input type="number" id="insert-index" placeholder="Index" />
+            <button id="insert-btn">Insert</button>
+          </div>
+          <div class="control-row">
+            <input type="number" id="delete-index" placeholder="Index" />
+            <button id="delete-btn">Delete</button>
+          </div>
+          <div class="control-row">
+            <input type="number" id="update-index" placeholder="Index" />
+            <input type="number" id="update-value" placeholder="Value" />
+            <button id="update-btn">Update</button>
+          </div>
+          <div class="control-row">
+            <input type="number" id="search-value" placeholder="Value" />
+            <button id="search-btn">Search</button>
+          </div>
+        </div>
+        <!-- Inline message panel -->
+        <div id="message"></div>
+        <div id="array-container"></div>
+      </div>
+    </div>
+
+    <!-- Core JS -->
+    <script src="js/external/jquery-1.10.2.js"></script>
+    <script src="js/external/jquery-ui.js"></script>
+    <script src="js/viz.js"></script>
+    <script src="js/common.js"></script>
+
+    <!-- Array-specific logic with inline messaging -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let arr = [];
+        const container = document.getElementById("array-container");
+        const messagePanel = document.getElementById("message");
+
+        function render(highlightIndex = -1) {
+          container.innerHTML = "";
+          arr.forEach((val, idx) => {
+            const el = document.createElement("div");
+            el.className = "array-item";
+            el.textContent = val;
+            if (idx === highlightIndex) el.classList.add("highlight");
+            container.appendChild(el);
+          });
+        }
+
+        function showMessage(msg) {
+          messagePanel.textContent = msg;
+          setTimeout(() => (messagePanel.textContent = ""), 2000);
+        }
+
+        document.getElementById("create-array").onclick = () => {
+          arr = Array.from({ length: 10 }, () =>
+            Math.floor(Math.random() * 100)
+          );
+          render();
+        };
+
+        document.getElementById("insert-btn").onclick = () => {
+          const val = parseInt(document.getElementById("insert-value").value);
+          const idx = parseInt(document.getElementById("insert-index").value);
+          if (!isNaN(val) && !isNaN(idx) && idx >= 0 && idx <= arr.length) {
+            arr.splice(idx, 0, val);
+            render(idx);
+          } else showMessage("Invalid value or index");
+        };
+
+        document.getElementById("delete-btn").onclick = () => {
+          const idx = parseInt(document.getElementById("delete-index").value);
+          if (!isNaN(idx) && idx >= 0 && idx < arr.length) {
+            arr.splice(idx, 1);
+            render();
+          } else showMessage("Invalid index");
+        };
+
+        document.getElementById("update-btn").onclick = () => {
+          const idx = parseInt(document.getElementById("update-index").value);
+          const val = parseInt(document.getElementById("update-value").value);
+          if (!isNaN(val) && !isNaN(idx) && idx >= 0 && idx < arr.length) {
+            arr[idx] = val;
+            render(idx);
+          } else showMessage("Invalid value or index");
+        };
+
+        document.getElementById("search-btn").onclick = () => {
+          const val = parseInt(document.getElementById("search-value").value);
+          const idx = arr.indexOf(val);
+          if (idx !== -1) {
+            render(idx);
+          } else {
+            showMessage("Value not found");
+            render();
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

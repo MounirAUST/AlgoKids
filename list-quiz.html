@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Linked List, Stack, Queue Quiz</title>
+    <style>
+      body {
+        font-family: "Nunito", "PT Sans", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        color: #333;
+      }
+
+      .quiz-header {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        color: white;
+        padding: 16px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-title {
+        font-family: "Nunito", "Courier New", Courier, monospace;
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .brand-title .white {
+        color: white;
+      }
+
+      .brand-title .green {
+        color: #06d6a0;
+      }
+
+      .home-btn {
+        background-color: #06d6a0;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #212529;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-btn:hover {
+        background-color: #05b587;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .quiz-content {
+        padding: 40px 30px 100px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .question {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #212529;
+        line-height: 1.4;
+      }
+
+      .question-img {
+        margin: 30px auto;
+        display: block;
+        width: 400px;
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin: 10px 5px;
+        background-color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .option:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .option input {
+        margin-right: 8px;
+        accent-color: #4361ee;
+      }
+
+      .show-answer-btn {
+        margin-top: 20px;
+        background-color: #4361ee;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .show-answer-btn:hover {
+        background-color: #3a56d4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        gap: 12px;
+        font-weight: bold;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .nav-bar button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.2s ease;
+        font-family: "Nunito", sans-serif;
+        font-weight: 600;
+      }
+
+      .nav-bar button:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .nav-bar .current {
+        background-color: #fff;
+        color: #4361ee;
+        padding: 4px 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .feedback {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 6px;
+        background-color: #f8f9fa;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        display: inline-block;
+      }
+
+      .feedback:empty {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-header">
+      <h2 class="brand-title">
+        <span class="white">Algo</span><span class="green">Kids</span>
+      </h2>
+      <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+
+    <div class="quiz-content">
+      <!-- Q1 -->
+      <div class="question-container" id="question1">
+        <div class="question">
+          1. What is the <strong>head</strong> of a linked list?
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q1" value="first" /> The first
+            node</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="middle" /> The middle
+            node</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="last" /> The last node</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ1()">Show Answer</button>
+        <div id="feedback1" class="feedback"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-container" id="question2" style="display: none">
+        <div class="question">
+          2. True or False: In a singly linked list, each node points to the
+          next node.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q2" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q2" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ2()">Show Answer</button>
+        <div id="feedback2" class="feedback"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-container" id="question3" style="display: none">
+        <div class="question">
+          3. What happens when you <strong>pop</strong> from a stack?
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q3" value="top" /> Remove the top
+            element</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="bottom" /> Remove the bottom
+            element</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="random" /> Remove a random
+            element</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ3()">Show Answer</button>
+        <div id="feedback3" class="feedback"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-container" id="question4" style="display: none">
+        <div class="question">
+          4. True or False: In a queue, elements are added at the front.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q4" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q4" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ4()">Show Answer</button>
+        <div id="feedback4" class="feedback"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-container" id="question5" style="display: none">
+        <div class="question">
+          5. Look at the linked list diagram. What is the correct order of
+          nodes?
+        </div>
+        <img
+          src="img/LinkedListQ5.png"
+          alt="Linked List Diagram"
+          class="question-img"
+        />
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q5" value="A->B->C->D" /> A → B → C →
+            D</label
+          >
+          <label class="option"
+            ><input type="radio" name="q5" value="D->C->B->A" /> D → C → B →
+            A</label
+          >
+          <label class="option"
+            ><input type="radio" name="q5" value="B->A->C->D" /> B → A → C →
+            D</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ5()">Show Answer</button>
+        <div id="feedback5" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="nav-bar">
+      <button id="prevBtn">Previous question</button>
+      <button class="current" id="q1Btn">1</button>
+      <button id="q2Btn">2</button>
+      <button id="q3Btn">3</button>
+      <button id="q4Btn">4</button>
+      <button id="q5Btn">5</button>
+      <button id="nextBtn">Next question</button>
+    </div>
+
+    <script>
+      let currentQuestion = 1;
+      function showQuestion(num) {
+        document
+          .querySelectorAll(".question-container")
+          .forEach((q) => (q.style.display = "none"));
+        document.getElementById(`question${num}`).style.display = "block";
+        currentQuestion = num;
+        document
+          .querySelectorAll(".nav-bar button")
+          .forEach((btn) => btn.classList.remove("current"));
+        document.getElementById(`q${num}Btn`).classList.add("current");
+      }
+      document.getElementById("nextBtn").onclick = () => {
+        if (currentQuestion < 5) showQuestion(currentQuestion + 1);
+      };
+      document.getElementById("prevBtn").onclick = () => {
+        if (currentQuestion > 1) showQuestion(currentQuestion - 1);
+      };
+      document.getElementById("q1Btn").onclick = () => showQuestion(1);
+      document.getElementById("q2Btn").onclick = () => showQuestion(2);
+      document.getElementById("q3Btn").onclick = () => showQuestion(3);
+      document.getElementById("q4Btn").onclick = () => showQuestion(4);
+      document.getElementById("q5Btn").onclick = () => showQuestion(5);
+
+      function checkQ1() {
+        const selected = document.querySelector('input[name="q1"]:checked');
+        const feedback = document.getElementById("feedback1");
+        const correct = "first";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent = "✅ Correct! Head is the first node."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct Answer: The first node.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ2() {
+        const selected = document.querySelector('input[name="q2"]:checked');
+        const feedback = document.getElementById("feedback2");
+        const correct = "True";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! Singly linked lists point to next node."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct Answer: True.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ3() {
+        const selected = document.querySelector('input[name="q3"]:checked');
+        const feedback = document.getElementById("feedback3");
+        const correct = "top";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent = "✅ Correct! Pop removes the top element."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct Answer: Remove the top element.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ4() {
+        const selected = document.querySelector('input[name="q4"]:checked');
+        const feedback = document.getElementById("feedback4");
+        const correct = "False";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! In a queue, elements are added at the rear."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct Answer: False.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ5() {
+        const selected = document.querySelector('input[name="q5"]:checked');
+        const feedback = document.getElementById("feedback5");
+        const correct = "A->B->C->D";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent = "✅ Correct! A → B → C → D."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct Answer: A → B → C → D.`),
+            (feedback.style.color = "red");
+      }
+    </script>
+  </body>
+</html>

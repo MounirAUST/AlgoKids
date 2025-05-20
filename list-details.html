@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Linked List, Stack & Queue</title>
+  <style>
+    body {
+      font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 40px;
+      max-width: 960px;
+      margin: auto;
+      line-height: 1.8;
+      color: #212529;
+      background-color: #f8f9fa;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+    }
+    h1, h2, h3 {
+      text-align: center;
+      font-weight: 700;
+      color: #4361ee;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+    }
+    h2 {
+      position: relative;
+      padding-bottom: 10px;
+    }
+    h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      border-radius: 3px;
+    }
+    h3 {
+      color: #7209b7;
+    }
+    .section {
+      margin-bottom: 40px;
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 3px solid #4361ee;
+      transition: all 0.3s ease;
+    }
+    .section:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    .section:nth-child(odd) {
+      border-left-color: #7209b7;
+    }
+    strong {
+      color: #4361ee;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .section h3 {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Linked List, Stack & Queue</h1>
+
+  <div class="section">
+    <h2>1. What is a Linked List?</h2>
+    <p>A <strong>Linked List</strong> is a data structure made of nodes, where each node contains a value and a pointer to the next node. It allows efficient insertions and deletions.</p>
+    <ul>
+      <li>Can grow or shrink in size dynamically</li>
+      <li>Useful when the number of elements is unknown ahead of time</li>
+      <li>Can be singly linked or doubly linked</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. What is a Stack?</h2>
+    <p>A <strong>Stack</strong> is a linear data structure that follows the <strong>Last In, First Out (LIFO)</strong> principle. The last item added is the first to be removed.</p>
+    <ul>
+      <li><code>push(x)</code>: Add element to the top</li>
+      <li><code>pop()</code>: Remove the top element</li>
+      <li><code>peek()</code>: View the top element without removing</li>
+    </ul>
+    <p>Think of it like a stack of plates — you remove the top one first!</p>
+  </div>
+
+  <div class="section">
+    <h2>3. What is a Queue?</h2>
+    <p>A <strong>Queue</strong> is a linear data structure that follows the <strong>First In, First Out (FIFO)</strong> principle. The first item added is the first to be removed.</p>
+    <ul>
+      <li><code>enqueue(x)</code>: Add element to the back</li>
+      <li><code>dequeue()</code>: Remove the front element</li>
+      <li><code>peek()</code>: View the front element without removing</li>
+    </ul>
+    <p>Think of it like a line at a ticket counter — first come, first served.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Visual Exploration</h2>
+    <p>Use the interactive visualizer to:</p>
+    <ul>
+      <li>Insert and remove elements from a linked list</li>
+      <li>Push and pop items from a stack</li>
+      <li>Enqueue and dequeue elements from a queue</li>
+    </ul>
+    <p>Watch how pointers change and understand the flow of data in each structure.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Summary</h2>
+    <p>These structures are the building blocks of more advanced algorithms. Mastering them helps you understand how programs manage memory, store data, and control process flow efficiently.</p>
+  </div>
+</body>
+</html>

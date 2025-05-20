@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Binary Search Tree & AVL Tree</title>
+    <style>
+      body {
+        font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        padding: 40px;
+        max-width: 960px;
+        margin: auto;
+        line-height: 1.8;
+        color: #212529;
+        background-color: #f8f9fa;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+      }
+      h1, h2, h3 {
+        text-align: center;
+        font-weight: 700;
+        color: #4361ee;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+      h1 {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+      }
+      h2 {
+        position: relative;
+        padding-bottom: 10px;
+      }
+      h2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        border-radius: 3px;
+      }
+      h3 {
+        color: #7209b7;
+      }
+      .section {
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 3px solid #4361ee;
+        transition: all 0.3s ease;
+      }
+      .section:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+      .section:nth-child(odd) {
+        border-left-color: #7209b7;
+      }
+      strong {
+        color: #4361ee;
+        font-weight: 700;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+      .section h3 {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+        font-size: 1.1rem;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+      img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Binary Search Tree & AVL Tree</h1>
+
+    <div class="section">
+      <h2>1. What is a Binary Search Tree (BST)?</h2>
+      <p>A <strong>Binary Search Tree</strong> is a tree structure where each node has at most two children. For every node:</p>
+      <ul>
+        <li>All values in the left subtree are <strong>less</strong> than the node.</li>
+        <li>All values in the right subtree are <strong>greater</strong> than the node.</li>
+      </ul>
+      <p>This property allows for efficient <code>search</code>, <code>insert</code>, and <code>delete</code> operations.</p>
+      <img src="./img/Bst.png" alt="Binary Search Tree Diagram" />
+    </div>
+
+    <div class="section">
+      <h2>2. Why BST is Important</h2>
+      <p>BSTs make it easier to organize and retrieve data quickly. In the best case, they allow:</p>
+      <ul>
+        <li>Searching in O(log N)</li>
+        <li>Inserting in O(log N)</li>
+        <li>Removing in O(log N)</li>
+      </ul>
+      <p>However, if the tree becomes unbalanced, performance can degrade to O(N).</p>
+    </div>
+
+    <div class="section">
+      <h2>3. Introducing AVL Trees</h2>
+      <p>An <strong>AVL Tree</strong> is a self-balancing Binary Search Tree. It automatically keeps the height difference (balance factor) between the left and right subtree of any node to no more than 1.</p>
+      <p>This guarantees that operations remain efficient and balanced.</p>
+    </div>
+
+    <div class="section">
+      <h3>3-1. AVL Rotations</h3>
+      <ul>
+        <li><strong>Right Rotation (LL Case)</strong></li>
+        <li><strong>Left Rotation (RR Case)</strong></li>
+        <li><strong>Left-Right Rotation (LR Case)</strong></li>
+        <li><strong>Right-Left Rotation (RL Case)</strong></li>
+      </ul>
+      <p>These rotations are performed to rebalance the tree whenever needed after insertions or deletions.</p>
+    </div>
+
+    <div class="section">
+      <h3>3-2. Why AVL Trees Matter</h3>
+      <p>AVL Trees prevent the BST from becoming skewed. This keeps operations consistently fast.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Visual Exploration</h2>
+      <p>Use the visualizer to:</p>
+      <ul>
+        <li>Insert and remove values</li>
+        <li>Toggle between BST and AVL mode</li>
+        <li>See how AVL maintains balance after each operation</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>5. Summary</h2>
+      <p>Binary Search Trees are powerful tools for sorted data. AVL Trees build on BSTs by adding balance to ensure peak performance. Use both to understand how structure impacts speed and efficiency!</p>
+    </div>
+  </body>
+</html>

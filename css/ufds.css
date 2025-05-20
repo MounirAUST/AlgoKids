@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+/* Base variables */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --accent: #ffbe0b;
+  --success: #06d6a0;
+  --danger: #ef476f;
+  --white: #ffffff;
+  --black: #000000;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 6px;
+  --transition: all 0.3s ease;
+}
+
+#viz {
+  padding-top: 60px;
+}
+
+/*all action pullout (input) stuff here*/
+
+#init-input {
+  position: fixed;
+  bottom: 173px;
+  left: 166px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+#init-input input {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#init-go {
+  position: fixed;
+  bottom: 173px;
+  left: 198px;
+  width: 0px;
+  background: var(--accent);
+  color: var(--gray-900);
+  overflow: hidden;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+#init-go p {
+  padding: 8px 8px 7px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#sample-input {
+  position: fixed;
+  bottom: 146px;
+  left: 166px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+#sample-input input {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 6px 8px 5px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#sample-go {
+  position: fixed;
+  bottom: 146px;
+  left: 198px;
+  width: 0px;
+  background: var(--accent);
+  color: var(--gray-900);
+  overflow: hidden;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+#sample-go p {
+  padding: 5px 8px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#find-input {
+  position: fixed;
+  bottom: 119px;
+  left: 166px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+#find-input input {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 6px 8px 5px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#find-go {
+  position: fixed;
+  bottom: 119px;
+  left: 198px;
+  width: 0px;
+  background: var(--accent);
+  color: var(--gray-900);
+  overflow: hidden;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+#find-go p {
+  padding: 5px 8px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#isSameSet-input {
+  position: fixed;
+  bottom: 92px;
+  left: 166px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+#isSameSet-input input {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 6px 8px 5px;
+  width: 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#isSameSet-go {
+  position: fixed;
+  bottom: 92px;
+  left: 231px;
+  width: 0px;
+  background: var(--accent);
+  color: var(--gray-900);
+  overflow: hidden;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+#isSameSet-go p {
+  padding: 5px 8px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#union-input {
+  position: fixed;
+  bottom: 60px;
+  left: 166px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+}
+#union-input input {
+  background: var(--gray-800);
+  color: var(--white);
+  padding: 8px;
+  width: 16px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#union-go {
+  position: fixed;
+  bottom: 60px;
+  left: 231px;
+  width: 0px;
+  background: var(--accent);
+  color: var(--gray-900);
+  overflow: hidden;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+#union-go p {
+  padding: 8px 8px 7px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/*all action pullout (error) stuff here*/
+.err {
+  position: fixed;
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+}
+#init-err {
+  bottom: 173px;
+  left: 242px;
+  padding: 8px 0px 7px;
+}
+#sample-err {
+  bottom: 146px;
+  left: 242px;
+  padding: 5px 0px;
+}
+#find-err {
+  bottom: 119px;
+  left: 242px;
+  padding: 5px 0px;
+}
+#isSameSet-err {
+  bottom: 92px;
+  left: 276px;
+  padding: 5px 0px;
+}
+#union-err {
+  bottom: 60px;
+  left: 276px;
+  padding: 8px 0px 7px;
+}
+
+/* Hover effects for interactive elements */
+#init-go:hover,
+#sample-go:hover,
+#find-go:hover,
+#isSameSet-go:hover,
+#union-go:hover {
+  background: var(--success);
+  cursor: pointer;
+}
+
+/* Focus styles for inputs */
+#init-input input:focus,
+#sample-input input:focus,
+#find-input input:focus,
+#isSameSet-input input:focus,
+#union-input input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-dark);
+}

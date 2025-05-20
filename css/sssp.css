@@ -1,0 +1,413 @@
+@charset "utf-8";
+
+/* Modern design variables */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --transition: all 0.3s ease;
+}
+
+/*all action pullout (input) stuff here*/
+#samples-submenu {
+  position: fixed;
+  bottom: 146px;
+  left: 196px;
+  width: 0px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: width 0.3s ease;
+}
+#samples-submenu .execAction {
+  display: inline-block;
+  background: var(--primary);
+  margin-right: 3px;
+  color: var(--white);
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+#samples-submenu .execAction:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+#samples-submenu .execAction p {
+  padding: 8px 8px 7px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#bfs-input {
+  position: fixed;
+  bottom: 119px;
+  left: 196px;
+  background: var(--gray-800);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+}
+#bfs-input input {
+  width: 40px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 6px 8px 5px;
+  border: 1px solid var(--gray-700);
+  border-radius: var(--border-radius-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+#bfs-input input:focus {
+  border-color: var(--info);
+}
+#bfs-go {
+  position: fixed;
+  bottom: 119px;
+  left: 228px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+#bfs-go:hover {
+  background: var(--primary-dark);
+}
+#bfs-go p {
+  padding: 5px 8px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#bellmanford-input {
+  position: fixed;
+  bottom: 92px;
+  left: 196px;
+  background: var(--gray-800);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+}
+#bellmanford-input input {
+  width: 40px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 6px 8px 5px;
+  border: 1px solid var(--gray-700);
+  border-radius: var(--border-radius-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+#bellmanford-input input:focus {
+  border-color: var(--info);
+}
+#bellmanford-go {
+  position: fixed;
+  bottom: 92px;
+  left: 228px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+#bellmanford-go:hover {
+  background: var(--primary-dark);
+}
+#bellmanford-go p {
+  padding: 5px 8px;
+  margin: 0;
+  font-weight: 600;
+}
+
+#dijkstra-input {
+  position: fixed;
+  bottom: 60px;
+  left: 196px;
+  background: var(--gray-800);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+}
+#dijkstra-input input {
+  width: 40px;
+  background: var(--dark);
+  color: var(--white);
+  padding: 8px;
+  border: 1px solid var(--gray-700);
+  border-radius: var(--border-radius-sm);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+#dijkstra-input input:focus {
+  border-color: var(--info);
+}
+#dijkstra-go1 {
+  position: fixed;
+  bottom: 60px;
+  left: 228px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+#dijkstra-go1:hover {
+  background: var(--primary-dark);
+}
+#dijkstra-go1 p {
+  padding: 8px 8px 7px;
+  margin: 0;
+  font-weight: 600;
+}
+#dijkstra-go2 {
+  position: fixed;
+  bottom: 60px;
+  left: 289px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-left: none;
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+#dijkstra-go2:hover {
+  background: var(--primary-dark);
+}
+#dijkstra-go2 p {
+  padding: 8px 8px 7px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/*all action pullout (error) stuff here*/
+.err {
+  position: fixed;
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+#samples-err {
+  bottom: 146px;
+  left: 728px;
+  padding: 8px 0px 7px;
+}
+#bfs-err {
+  bottom: 119px;
+  left: 272px;
+  padding: 5px 0px;
+}
+#bellmanford-err {
+  bottom: 92px;
+  left: 272px;
+  padding: 5px 0px;
+}
+#dijkstra-err {
+  bottom: 60px;
+  left: 363px;
+  padding: 8px 0px 7px;
+}
+
+/*all tutorial stuff here*/
+#sssp-tutorial-1,
+#sssp-tutorial-2,
+#sssp-tutorial-3,
+#sssp-tutorial-4,
+#sssp-tutorial-5,
+#sssp-tutorial-6,
+#sssp-tutorial-7 {
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  border-left: 4px solid var(--primary);
+  font-family: "Nunito", "PT Sans", sans-serif;
+  line-height: 1.5;
+  position: fixed;
+  z-index: 1000;
+}
+
+#sssp-tutorial-1 {
+  top: 60px;
+  left: 60px;
+  width: 250px;
+}
+#sssp-tutorial-2 {
+  bottom: 200px;
+  left: 60px;
+  width: 350px;
+}
+#sssp-tutorial-2:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+#sssp-tutorial-3 {
+  top: 400px;
+  left: 50%;
+  width: 200px;
+  margin-left: -110px;
+}
+#sssp-tutorial-3:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+#sssp-tutorial-4 {
+  bottom: 335px;
+  right: 150px;
+  width: 200px;
+}
+#sssp-tutorial-4:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+#sssp-tutorial-5 {
+  bottom: 275px;
+  right: 170px;
+  width: 180px;
+}
+#sssp-tutorial-5:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+#sssp-tutorial-6 {
+  bottom: 70px;
+  left: 50%;
+  width: 260px;
+  margin-left: -142px;
+}
+#sssp-tutorial-6:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+#sssp-tutorial-7 {
+  top: 70px;
+  right: 60px;
+  width: 150px;
+}
+#sssp-tutorial-7:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+/* Tutorial navigation styling */
+.tutorial-next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tutorial-next:hover {
+  color: var(--primary-dark);
+}
+
+.tutorial-next img {
+  width: 12px;
+  height: 12px;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.tutorial-next:hover img {
+  transform: translateX(3px);
+}
+
+/* Add animation for tutorial dialogs */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#sssp-tutorial-1,
+#sssp-tutorial-2,
+#sssp-tutorial-3,
+#sssp-tutorial-4,
+#sssp-tutorial-5,
+#sssp-tutorial-6,
+#sssp-tutorial-7 {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Add modern styling for text content */
+#sssp-tutorial-1 strong,
+#sssp-tutorial-2 strong,
+#sssp-tutorial-3 strong,
+#sssp-tutorial-4 strong,
+#sssp-tutorial-5 strong,
+#sssp-tutorial-6 strong,
+#sssp-tutorial-7 strong {
+  color: var(--primary);
+  font-weight: 700;
+}

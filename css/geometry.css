@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+/* Modern color palette and variables */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 4px;
+  --transition: all 0.3s ease;
+}
+
+/*all action pullout (input) stuff here*/
+#graham-go {
+  position: fixed;
+  bottom: 60px;
+  left: 196px;
+  background: var(--primary);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+#graham-go p {
+  padding: 6px 8px 6px;
+  margin: 0;
+  color: var(--white);
+  font-weight: 600;
+  font-family: "Nunito", "PT Sans", sans-serif;
+}
+
+#graham-go:hover {
+  background: var(--primary-dark);
+}
+
+/*all tutorial stuff here*/
+#heap-tutorial-1,
+#heap-tutorial-2,
+#heap-tutorial-3,
+#heap-tutorial-4,
+#heap-tutorial-5,
+#heap-tutorial-6,
+#heap-tutorial-7 {
+  background-color: var(--white);
+  color: var(--dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  border-left: 4px solid var(--primary);
+  font-family: "Nunito", "PT Sans", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+#heap-tutorial-1 {
+  top: 60px;
+  left: 60px;
+  width: 250px;
+}
+
+#heap-tutorial-2 {
+  bottom: 230px;
+  left: 60px;
+  width: 220px;
+}
+
+#heap-tutorial-2:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#heap-tutorial-3 {
+  top: 300px;
+  left: 50%;
+  width: 200px;
+  margin-left: -110px;
+}
+
+#heap-tutorial-3:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+#heap-tutorial-4 {
+  bottom: 335px;
+  right: 150px;
+  width: 200px;
+}
+
+#heap-tutorial-4:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#heap-tutorial-5 {
+  bottom: 275px;
+  right: 170px;
+  width: 180px;
+}
+
+#heap-tutorial-5:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#heap-tutorial-6 {
+  bottom: 70px;
+  left: 50%;
+  width: 220px;
+  margin-left: -120px;
+}
+
+#heap-tutorial-6:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#heap-tutorial-7 {
+  top: 70px;
+  right: 60px;
+  width: 150px;
+}
+
+#heap-tutorial-7:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+/* Tutorial dialog elements */
+.tutorial-next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tutorial-next:hover {
+  color: var(--primary-dark);
+}
+
+.tutorial-next img {
+  margin-left: 0.5rem;
+}
+
+/* Strong elements in tutorial */
+#heap-tutorial-1 strong,
+#heap-tutorial-2 strong,
+#heap-tutorial-3 strong,
+#heap-tutorial-4 strong,
+#heap-tutorial-5 strong,
+#heap-tutorial-6 strong,
+#heap-tutorial-7 strong {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Active styles for UI elements */
+#graham-go.active {
+  width: auto;
+}

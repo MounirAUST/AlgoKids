@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+/* Define modern color scheme and visual properties */
+:root {
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --primary-light: #bac8ff;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --border-radius: 6px;
+  --transition: all 0.3s ease;
+}
+
+/*all action pullout (input) stuff here*/
+#build-input {
+  position: fixed;
+  bottom: 146px;
+  left: 226px;
+  background: var(--white);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: width var(--transition);
+}
+#build-input input {
+  width: 200px;
+  background: var(--light);
+  color: var(--dark);
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#build-go {
+  position: fixed;
+  bottom: 146px;
+  left: 426px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: background-color 0.2s;
+}
+#build-go p {
+  padding: 8px 8px 7px;
+  font-weight: 600;
+  margin: 0;
+}
+#build-go:hover {
+  background: var(--primary-dark);
+}
+
+#search-input {
+  position: fixed;
+  bottom: 119px;
+  left: 226px;
+  background: var(--white);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: width var(--transition);
+}
+#search-input input {
+  width: 200px;
+  background: var(--light);
+  color: var(--dark);
+  padding: 6px 8px 5px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#search-go {
+  position: fixed;
+  bottom: 119px;
+  left: 426px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: background-color 0.2s;
+}
+#search-go p {
+  padding: 5px 8px;
+  font-weight: 600;
+  margin: 0;
+}
+#search-go:hover {
+  background: var(--primary-dark);
+}
+
+#lcs-input {
+  position: fixed;
+  bottom: 60px;
+  left: 226px;
+  background: var(--white);
+  width: 0px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: width var(--transition);
+}
+#lcs-input input {
+  width: 78px;
+  background: var(--light);
+  color: var(--dark);
+  padding: 8px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-family: "Nunito", sans-serif;
+}
+#lcs-go {
+  position: fixed;
+  bottom: 60px;
+  left: 415px;
+  width: 0px;
+  background: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: background-color 0.2s;
+}
+#lcs-go p {
+  padding: 8px 8px 7px;
+  font-weight: 600;
+  margin: 0;
+}
+#lcs-go:hover {
+  background: var(--primary-dark);
+}
+
+/*all action pullout (error) stuff here*/
+.err {
+  position: fixed;
+  color: var(--danger);
+  font-weight: 500;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.875rem;
+}
+#build-err {
+  bottom: 146px;
+  left: 468px;
+  padding: 8px 0px 7px;
+}
+#search-err {
+  bottom: 119px;
+  left: 468px;
+  padding: 5px 0px;
+}
+#lcs-err {
+  bottom: 60px;
+  left: 460px;
+  padding: 8px 0px 7px;
+}
+
+/*tutorial dialogs*/
+#suffixtree-tutorial-1,
+#suffixtree-tutorial-2,
+#suffixtree-tutorial-3,
+#suffixtree-tutorial-4,
+#suffixtree-tutorial-5,
+#suffixtree-tutorial-6,
+#suffixtree-tutorial-7 {
+  background: var(--white);
+  color: var(--dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5;
+  border-left: 4px solid var(--primary);
+}
+
+#suffixtree-tutorial-1 {
+  top: 60px;
+  left: 60px;
+  width: 250px;
+}
+#suffixtree-tutorial-2 {
+  bottom: 200px;
+  left: 60px;
+  width: 220px;
+}
+#suffixtree-tutorial-2:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: var(--white);
+  margin-left: -10px;
+}
+#suffixtree-tutorial-3 {
+  top: 400px;
+  left: 50%;
+  width: 200px;
+  margin-left: -110px;
+}
+#suffixtree-tutorial-3:before {
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: var(--white);
+  margin-left: -10px;
+}
+#suffixtree-tutorial-4 {
+  bottom: 335px;
+  right: 150px;
+  width: 200px;
+}
+#suffixtree-tutorial-4:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: var(--white);
+  margin-left: -10px;
+}
+#suffixtree-tutorial-5 {
+  bottom: 275px;
+  right: 170px;
+  width: 180px;
+}
+#suffixtree-tutorial-5:before {
+  top: 100%;
+  left: 20%;
+  border-top-color: var(--white);
+  margin-left: -10px;
+}
+#suffixtree-tutorial-6 {
+  bottom: 70px;
+  left: 50%;
+  width: 220px;
+  margin-left: -120px;
+}
+#suffixtree-tutorial-6:before {
+  top: 100%;
+  left: 50%;
+  border-top-color: var(--white);
+  margin-left: -10px;
+}
+#suffixtree-tutorial-7 {
+  top: 70px;
+  right: 60px;
+  width: 150px;
+}
+#suffixtree-tutorial-7:before {
+  bottom: 100%;
+  left: 50%;
+  border-bottom-color: var(--white);
+  margin-left: -10px;
+}
+
+.tutorial-next {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.tutorial-next:hover {
+  color: var(--primary-dark);
+}
+
+.tutorial-next img {
+  transition: transform 0.2s;
+}
+
+.tutorial-next:hover img {
+  transform: translateX(3px);
+}
+
+/*others*/
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+.lcs_first {
+  fill: var(--info);
+  stroke: var(--white);
+  stroke-width: 1px;
+}
+
+.lcs_second {
+  fill: var(--success);
+  stroke: var(--white);
+  stroke-width: 1px;
+}
+
+.lcs_internal {
+  fill: var(--light);
+  stroke: #dee2e6;
+  stroke-width: 1px;
+}

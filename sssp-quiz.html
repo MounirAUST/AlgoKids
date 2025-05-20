@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Single-Source Shortest Paths Quiz</title>
+    <style>
+      body {
+        font-family: "Nunito", "PT Sans", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+      }
+
+      .quiz-header {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        color: white;
+        padding: 16px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-title {
+        font-family: "Courier New", Courier, monospace;
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .brand-title .white {
+        color: white;
+      }
+
+      .brand-title .green {
+        color: #4cc9f0;
+        text-shadow: 0 0 5px rgba(76, 201, 240, 0.5);
+      }
+
+      .home-btn {
+        background-color: #4cc9f0;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 4px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #212529;
+        transition: all 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .home-btn:hover {
+        background-color: #06d6a0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .quiz-content {
+        padding: 40px 30px 100px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .question {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #343a40;
+        line-height: 1.4;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin: 10px 5px;
+        background-color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        border: 1px solid #e9ecef;
+        transition: all 0.2s;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .option:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-color: #ced4da;
+      }
+
+      .option input {
+        margin-right: 8px;
+        accent-color: #4361ee;
+        width: 18px;
+        height: 18px;
+      }
+
+      .show-answer-btn {
+        margin-top: 20px;
+        background-color: #4361ee;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        color: white;
+        transition: all 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .show-answer-btn:hover {
+        background-color: #3a56d4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        gap: 12px;
+        font-weight: bold;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-bar button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        transition: all 0.2s;
+        padding: 4px 8px;
+      }
+
+      .nav-bar button:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .nav-bar .current {
+        background-color: #fff;
+        color: #4361ee;
+        padding: 4px 10px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .feedback {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+
+      .feedback[style*="color: green"] {
+        background-color: rgba(6, 214, 160, 0.1);
+        border-left: 4px solid #06d6a0;
+      }
+
+      .feedback[style*="color: red"] {
+        background-color: rgba(239, 71, 111, 0.1);
+        border-left: 4px solid #ef476f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-header">
+      <h2 class="brand-title">
+        <span class="white">Algo</span><span class="green">Kids</span>
+      </h2>
+      <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+
+    <div class="quiz-content">
+      <!-- Q1 -->
+      <div class="question-container" id="question1">
+        <div class="question">1. What does a "shortest path" mean?</div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q1" value="fewest" /> Taking the path
+            that has the fewest total steps</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="biggest" /> Taking the path
+            with the biggest numbers</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="random" /> Moving randomly
+            through the graph</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ1()">Show Answer</button>
+        <div id="feedback1" class="feedback"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-container" id="question2" style="display: none">
+        <div class="question">
+          2. True or False: There can be many paths between two places, but we
+          want the shortest one.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q2" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q2" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ2()">Show Answer</button>
+        <div id="feedback2" class="feedback"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-container" id="question3" style="display: none">
+        <div class="question">
+          3. What do we usually want to make smaller in a path?
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q3" value="All" /> All of the above
+            (time, cost, distance)</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="Random" /> Random
+            numbers</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="Bigger" /> Bigger
+            distances</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ3()">Show Answer</button>
+        <div id="feedback3" class="feedback"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-container" id="question4" style="display: none">
+        <div class="question">
+          4. True or False: In a shortest path, we always pick the path with the
+          highest number.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q4" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q4" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ4()">Show Answer</button>
+        <div id="feedback4" class="feedback"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-container" id="question5" style="display: none">
+        <div class="question">
+          5. Which road is usually better if you want a shorter path?
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q5" value="smaller" /> The road with
+            smaller numbers</label
+          >
+          <label class="option"
+            ><input type="radio" name="q5" value="larger" /> The road with
+            larger numbers</label
+          >
+          <label class="option"
+            ><input type="radio" name="q5" value="random" /> The road with
+            random numbers</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ5()">Show Answer</button>
+        <div id="feedback5" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="nav-bar">
+      <button id="prevBtn">Previous question</button>
+      <button class="current" id="q1Btn">1</button>
+      <button id="q2Btn">2</button>
+      <button id="q3Btn">3</button>
+      <button id="q4Btn">4</button>
+      <button id="q5Btn">5</button>
+      <button id="nextBtn">Next question</button>
+    </div>
+
+    <script>
+      let currentQuestion = 1;
+      function showQuestion(num) {
+        document
+          .querySelectorAll(".question-container")
+          .forEach((q) => (q.style.display = "none"));
+        document.getElementById(`question${num}`).style.display = "block";
+        currentQuestion = num;
+        document
+          .querySelectorAll(".nav-bar button")
+          .forEach((btn) => btn.classList.remove("current"));
+        document.getElementById(`q${num}Btn`).classList.add("current");
+      }
+      document.getElementById("nextBtn").onclick = () => {
+        if (currentQuestion < 5) showQuestion(currentQuestion + 1);
+      };
+      document.getElementById("prevBtn").onclick = () => {
+        if (currentQuestion > 1) showQuestion(currentQuestion - 1);
+      };
+      document.getElementById("q1Btn").onclick = () => showQuestion(1);
+      document.getElementById("q2Btn").onclick = () => showQuestion(2);
+      document.getElementById("q3Btn").onclick = () => showQuestion(3);
+      document.getElementById("q4Btn").onclick = () => showQuestion(4);
+      document.getElementById("q5Btn").onclick = () => showQuestion(5);
+
+      function checkQ1() {
+        const selected = document.querySelector('input[name="q1"]:checked');
+        const feedback = document.getElementById("feedback1");
+        const correct = "fewest";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! Shortest path means fewer total steps."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct answer: Taking the path that has the fewest total steps.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ2() {
+        const selected = document.querySelector('input[name="q2"]:checked');
+        const feedback = document.getElementById("feedback2");
+        const correct = "True";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! We want the shortest among many paths."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct answer: True.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ3() {
+        const selected = document.querySelector('input[name="q3"]:checked');
+        const feedback = document.getElementById("feedback3");
+        const correct = "All";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! We want smaller time, cost, distance."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct answer: All of the above.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ4() {
+        const selected = document.querySelector('input[name="q4"]:checked');
+        const feedback = document.getElementById("feedback4");
+        const correct = "False";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent = "✅ Correct! We choose the lowest numbers."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct answer: False.`),
+            (feedback.style.color = "red");
+      }
+
+      function checkQ5() {
+        const selected = document.querySelector('input[name="q5"]:checked');
+        const feedback = document.getElementById("feedback5");
+        const correct = "smaller";
+        if (!selected)
+          (feedback.textContent = "❗ Please select an answer."),
+            (feedback.style.color = "red");
+        else if (selected.value === correct)
+          (feedback.textContent =
+            "✅ Correct! Shorter paths have smaller numbers."),
+            (feedback.style.color = "green");
+        else
+          (feedback.innerHTML = `❌ Incorrect. Correct answer: The road with smaller numbers.`),
+            (feedback.style.color = "red");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Heap Quiz</title>
+    <style>
+      body {
+        font-family: "Nunito", "PT Sans", sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+      }
+
+      .feedback {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .quiz-header {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        color: white;
+        padding: 16px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .brand-title {
+        font-family: "Nunito", "Courier New", Courier, monospace;
+        font-size: 24px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .brand-title .white {
+        color: white;
+      }
+
+      .brand-title .green {
+        color: #ffbe0b;
+      }
+
+      .home-btn {
+        background-color: #ffbe0b;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #212529;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-btn:hover {
+        background-color: #e6aa0a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .quiz-content {
+        padding: 40px 30px 100px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .question {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #343a40;
+        line-height: 1.4;
+      }
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        margin: 10px 5px;
+        background-color: #fff;
+        padding: 8px 14px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 1px solid #e9ecef;
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .option:hover {
+        background-color: #f8f9fa;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .option input {
+        margin-right: 8px;
+        accent-color: #4361ee;
+        width: 18px;
+        height: 18px;
+      }
+
+      .show-answer-btn {
+        margin-top: 20px;
+        background-color: #4361ee;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 8px;
+        cursor: pointer;
+        color: white;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .show-answer-btn:hover {
+        background-color: #3a56d4;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+        gap: 12px;
+        font-weight: bold;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-bar button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .nav-bar button:hover {
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .nav-bar .current {
+        background-color: #fff;
+        color: #4361ee;
+        padding: 4px 10px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz-header">
+      <h2 class="brand-title">
+        <span class="white">Algo</span><span class="green">Kids</span>
+      </h2>
+      <a href="index.html" class="home-btn">🏠 Home</a>
+    </div>
+
+    <div class="quiz-content">
+      <!-- Q1 -->
+      <div class="question-container" id="question1">
+        <div class="question">
+          1. In a Min Heap, the parent node is always smaller than its children.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q1" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q1" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ1()">Show Answer</button>
+        <div id="feedback1" class="feedback"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-container" id="question2" style="display: none">
+        <div class="question">
+          2. A binary heap must always be a complete binary tree.
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q2" value="True" /> True</label
+          >
+          <label class="option"
+            ><input type="radio" name="q2" value="False" /> False</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ2()">Show Answer</button>
+        <div id="feedback2" class="feedback"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="question-container" id="question3" style="display: none">
+        <div class="question">3. Where is the maximum value in a Max Heap?</div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q3" value="At the root (top)" /> At the
+            root (top)</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="At a random place" /> At a
+            random place</label
+          >
+          <label class="option"
+            ><input type="radio" name="q3" value="At the bottom left" /> At the
+            bottom left</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ3()">Show Answer</button>
+        <div id="feedback3" class="feedback"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="question-container" id="question4" style="display: none">
+        <div class="question">
+          4. What is the time complexity to insert an element into a binary
+          heap?
+        </div>
+        <div class="options">
+          <label class="option"
+            ><input type="radio" name="q4" value="O(1)" /> O(1)</label
+          >
+          <label class="option"
+            ><input type="radio" name="q4" value="O(log N)" /> O(log N)</label
+          >
+          <label class="option"
+            ><input type="radio" name="q4" value="O(N)" /> O(N)</label
+          >
+        </div>
+        <button class="show-answer-btn" onclick="checkQ4()">Show Answer</button>
+        <div id="feedback4" class="feedback"></div>
+      </div>
+    </div>
+
+    <div class="nav-bar">
+      <button id="prevBtn">Previous question</button>
+      <button class="current" id="q1Btn">1</button>
+      <button id="q2Btn">2</button>
+      <button id="q3Btn">3</button>
+      <button id="q4Btn">4</button>
+      <button id="nextBtn">Next question</button>
+    </div>
+
+    <script>
+      let currentQuestion = 1;
+
+      function showQuestion(num) {
+        document
+          .querySelectorAll(".question-container")
+          .forEach((q) => (q.style.display = "none"));
+        document.getElementById(`question${num}`).style.display = "block";
+        currentQuestion = num;
+        document
+          .querySelectorAll(".nav-bar button")
+          .forEach((btn) => btn.classList.remove("current"));
+        document.getElementById(`q${num}Btn`).classList.add("current");
+      }
+
+      document.getElementById("nextBtn").onclick = () => {
+        if (currentQuestion < 4) showQuestion(currentQuestion + 1);
+      };
+      document.getElementById("prevBtn").onclick = () => {
+        if (currentQuestion > 1) showQuestion(currentQuestion - 1);
+      };
+      document.getElementById("q1Btn").onclick = () => showQuestion(1);
+      document.getElementById("q2Btn").onclick = () => showQuestion(2);
+      document.getElementById("q3Btn").onclick = () => showQuestion(3);
+      document.getElementById("q4Btn").onclick = () => showQuestion(4);
+
+      function checkAnswer(questionNumber, correctAnswer) {
+        const selected = document.querySelector(
+          `input[name="q${questionNumber}"]:checked`
+        );
+        const feedback = document.getElementById(`feedback${questionNumber}`);
+        if (!selected) {
+          feedback.textContent = "❗ Please select an answer.";
+          feedback.style.color = "red";
+        } else if (selected.value === correctAnswer) {
+          feedback.textContent = "✅ Correct!";
+          feedback.style.color = "green";
+        } else {
+          feedback.innerHTML = `❌ Incorrect. You selected <strong>${selected.value}</strong>. Correct: <strong>${correctAnswer}</strong>.`;
+          feedback.style.color = "red";
+        }
+      }
+
+      function checkQ1() {
+        checkAnswer(1, "True");
+      }
+      function checkQ2() {
+        checkAnswer(2, "True");
+      }
+      function checkQ3() {
+        checkAnswer(3, "At the root (top)");
+      }
+      function checkQ4() {
+        checkAnswer(4, "O(log N)");
+      }
+
+      // Load first question
+      showQuestion(1);
+    </script>
+  </body>
+</html>

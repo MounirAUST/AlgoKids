@@ -1,0 +1,359 @@
+/* ===== Modern answers.css ===== */
+/* Updated design for answer key and quiz result screens */
+
+:root {
+  /* Colors */
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Nunito", "PT Sans", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Login screen styles */
+#login-screen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 2.5rem;
+  text-align: center;
+  z-index: 1000;
+}
+
+#login-screen h1,
+#login-screen h2 {
+  font-family: "Nunito", sans-serif;
+  color: var(--dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+#login-screen h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+#login-screen h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+}
+
+#login-screen form {
+  margin-top: 2rem;
+}
+
+#login-screen input[type="text"],
+#login-screen input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+#login-screen input[type="text"]:focus,
+#login-screen input[type="password"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.25);
+  outline: none;
+}
+
+#login-yes {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#login-yes:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+#login-err {
+  margin-top: 1rem;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Test screen styles */
+#test-screen {
+  display: none;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 70px; /* Space for the question navigation */
+}
+
+#qn-no {
+  position: fixed;
+  top: 100px;
+  left: 50px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-align: right;
+  width: 60px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+#qn-text {
+  position: fixed;
+  top: 100px;
+  left: 130px;
+  width: calc(100% - 380px);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--gray-800);
+}
+
+#current-selection {
+  padding-top: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+#ans-key {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--success);
+  color: var(--white);
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+}
+
+/* SVG visualization */
+svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Question navigation */
+#question-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 1rem 0;
+  text-align: center;
+  z-index: 10;
+}
+
+#question-nav a.qnno {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  font-weight: 600;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+#question-nav a.qnno:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#question-nav a.selected {
+  opacity: 1;
+  background-color: var(--white);
+  color: var(--primary);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+#question-nav a.answered {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#question-nav a.selected:before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+/* Student info panel */
+#info {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  width: 200px;
+  text-align: right;
+}
+
+#student-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Result screen */
+#result-screen {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  padding: 3rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+#result-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gray-800);
+  margin-bottom: 1rem;
+}
+
+#result-screen #score {
+  font-size: 5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 1.5rem 0;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+  #login-screen {
+    padding: 2rem;
+  }
+
+  #login-screen h1 {
+    font-size: 2rem;
+  }
+
+  #login-screen h2 {
+    font-size: 1.5rem;
+  }
+
+  #qn-no {
+    top: 80px;
+    left: 20px;
+    font-size: 2.5rem;
+  }
+
+  #qn-text {
+    top: 80px;
+    left: 80px;
+    width: calc(100% - 100px);
+    font-size: 1rem;
+  }
+
+  #info {
+    top: 20px;
+    right: 20px;
+    width: auto;
+  }
+
+  #student-name {
+    font-size: 1rem;
+  }
+
+  #result-screen {
+    padding: 2rem;
+  }
+
+  #result-name {
+    font-size: 1.25rem;
+  }
+
+  #result-screen #score {
+    font-size: 4rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}

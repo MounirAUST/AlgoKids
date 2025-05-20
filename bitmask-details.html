@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bitmask</title>
+  <style>
+    body {
+      font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 40px;
+      max-width: 960px;
+      margin: auto;
+      line-height: 1.8;
+      color: #212529;
+      background-color: #f8f9fa;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+    }
+    h1, h2, h3 {
+      text-align: center;
+      font-weight: 700;
+      color: #4361ee;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+    }
+    h2 {
+      position: relative;
+      padding-bottom: 10px;
+    }
+    h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      border-radius: 3px;
+    }
+    h3 {
+      color: #7209b7;
+    }
+    .section {
+      margin-bottom: 40px;
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 3px solid #4361ee;
+      transition: all 0.3s ease;
+    }
+    .section:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    .section:nth-child(odd) {
+      border-left-color: #7209b7;
+    }
+    strong {
+      color: #4361ee;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .section h3 {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+      font-size: 1.1rem;
+    }
+    code {
+      background: #f1f3f5;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      color: #d6336c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bitmask</h1>
+
+  <div class="section">
+    <h2>1. What is a Bitmask?</h2>
+    <p>A <strong>bitmask</strong> is a technique that uses bits (0s and 1s) to represent and manipulate sets or states. It allows us to perform set operations efficiently using binary numbers.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Why Bitmask?</h2>
+    <p>Bitmasking is useful when you want to:</p>
+    <ul>
+      <li>Represent subsets (especially in DP or combinatorics)</li>
+      <li>Toggle, set, or clear specific states</li>
+      <li>Optimize performance by using fewer variables</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Common Operations</h2>
+    <ul>
+      <li><code>mask | (1 << i)</code> → set the i-th bit to 1</li>
+      <li><code>mask & ~(1 << i)</code> → clear the i-th bit to 0</li>
+      <li><code>mask ^ (1 << i)</code> → toggle the i-th bit</li>
+      <li><code>mask & (1 << i)</code> → check if the i-th bit is set</li>
+    </ul>
+    <p>These use bitwise operators: <code>|</code> OR, <code>&</code> AND, <code>^</code> XOR, <code>~</code> NOT.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Visual Exploration</h2>
+    <p>Try changing bits interactively in the visualizer. You can:</p>
+    <ul>
+      <li>Set, clear, or toggle bits</li>
+      <li>Observe the binary representation</li>
+      <li>See how subsets change based on binary</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Summary</h2>
+    <p>Bitmasking is a smart way to pack multiple boolean states into a single number. It’s fast, memory-efficient, and essential in many algorithmic problems like subset generation and dynamic programming.</p>
+  </div>
+</body>
+</html>

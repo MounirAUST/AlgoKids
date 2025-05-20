@@ -1,0 +1,586 @@
+/* ===== Modern suffix_array.css ===== */
+/* Enhanced styling for Suffix Array visualization */
+
+:root {
+  /* Colors */
+  --primary: #4361ee;
+  --primary-dark: #3a56d4;
+  --primary-light: #bac8ff;
+  --secondary: #7209b7;
+  --success: #06d6a0;
+  --info: #4cc9f0;
+  --warning: #ffbe0b;
+  --danger: #ef476f;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+
+  /* Border radius */
+  --border-radius: 8px;
+  --border-radius-sm: 4px;
+  --border-radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+}
+
+/* ===== Action Pullout (Input) Styles ===== */
+#build-input {
+  position: fixed;
+  bottom: 178px;
+  left: 226px;
+  background-color: var(--white);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 100;
+}
+
+#build-input.active {
+  width: 230px;
+  opacity: 1;
+}
+
+#build-input input {
+  width: 180px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem;
+  height: auto;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin: 0.5rem;
+}
+
+#build-input input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.25);
+  outline: none;
+}
+
+#build-go {
+  position: fixed;
+  bottom: 178px;
+  left: 456px;
+  width: 0px;
+  background-color: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
+}
+
+#build-go.active {
+  width: 50px;
+  opacity: 1;
+}
+
+#build-go p {
+  padding: 0.75rem;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#build-go:hover {
+  background-color: var(--primary-dark);
+  cursor: pointer;
+}
+
+/* Search input styling */
+#search-input {
+  position: fixed;
+  bottom: 152px;
+  left: 226px;
+  background-color: var(--white);
+  width: 0px;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 100;
+}
+
+#search-input.active {
+  width: 230px;
+  opacity: 1;
+}
+
+#search-input input {
+  width: 180px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin: 0.5rem;
+}
+
+#search-input input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.25);
+  outline: none;
+}
+
+#search-go {
+  position: fixed;
+  bottom: 152px;
+  left: 456px;
+  width: 0px;
+  background-color: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
+}
+
+#search-go.active {
+  width: 50px;
+  opacity: 1;
+}
+
+#search-go p {
+  padding: 0.75rem;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#search-go:hover {
+  background-color: var(--primary-dark);
+  cursor: pointer;
+}
+
+/* LCS input styling */
+#lcs-input {
+  position: fixed;
+  bottom: 68px;
+  left: 226px;
+  background-color: var(--white);
+  width: 0px;
+  height: auto;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow);
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+#lcs-input.active {
+  width: 230px;
+  opacity: 1;
+}
+
+#lcs-input input {
+  width: 90px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem;
+  height: auto;
+  font-size: 1rem;
+  transition: var(--transition);
+  margin: 0.5rem 0.25rem;
+}
+
+#lcs-input input:first-child {
+  border-right: 2px solid var(--gray-400);
+}
+
+#lcs-input input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.25);
+  outline: none;
+}
+
+#lcs-go {
+  position: fixed;
+  bottom: 68px;
+  left: 456px;
+  width: 0px;
+  background-color: var(--primary);
+  color: var(--white);
+  overflow: hidden;
+  height: auto;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  z-index: 100;
+}
+
+#lcs-go.active {
+  width: 50px;
+  opacity: 1;
+}
+
+#lcs-go p {
+  padding: 0.75rem;
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#lcs-go:hover {
+  background-color: var(--primary-dark);
+  cursor: pointer;
+}
+
+/* Error messages styling */
+.err {
+  position: fixed;
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition);
+  opacity: 0;
+  z-index: 101;
+}
+
+.err.active {
+  opacity: 1;
+}
+
+#build-err {
+  bottom: 146px;
+  left: 468px;
+  padding: 0.5rem 0;
+}
+
+#search-err {
+  bottom: 119px;
+  left: 468px;
+  padding: 0.5rem 0;
+}
+
+#lcs-err {
+  bottom: 60px;
+  left: 460px;
+  padding: 0.5rem 0;
+}
+
+/* ===== Tutorial Dialog Styling ===== */
+#suffixtree-tutorial-1 {
+  top: 100px;
+  left: 80px;
+  width: 320px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-2 {
+  bottom: 220px;
+  left: 80px;
+  width: 280px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-2:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#suffixtree-tutorial-3 {
+  top: 250px;
+  left: 50%;
+  width: 260px;
+  margin-left: -130px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-3:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+#suffixtree-tutorial-4 {
+  bottom: 335px;
+  right: 80px;
+  width: 260px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-4:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#suffixtree-tutorial-5 {
+  bottom: 275px;
+  right: 80px;
+  width: 260px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-5:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 20%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#suffixtree-tutorial-6 {
+  bottom: 80px;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-6:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--white) transparent transparent transparent;
+}
+
+#suffixtree-tutorial-7 {
+  top: 100px;
+  right: 80px;
+  width: 220px;
+  background-color: var(--white);
+  color: var(--gray-800);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  z-index: 1010;
+}
+
+#suffixtree-tutorial-7:before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white) transparent;
+}
+
+.tutorial-next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tutorial-next:hover {
+  color: var(--primary-dark);
+}
+
+.tutorial-next img {
+  width: 12px;
+  height: 12px;
+  margin-left: 0.5rem;
+}
+
+/* ===== D3 Visualization Styles ===== */
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+.lcs_first {
+  fill: var(--info);
+  stroke: var(--white);
+  stroke-width: 1px;
+  transition: fill 0.3s ease;
+}
+
+.lcs_first.highlighted {
+  fill: var(--success);
+  animation: pulse 0.6s infinite alternate;
+}
+
+.lcs_second {
+  fill: var(--warning);
+  stroke: var(--white);
+  stroke-width: 1px;
+  transition: fill 0.3s ease;
+}
+
+.lcs_second.highlighted {
+  fill: var(--success);
+  animation: pulse 0.6s infinite alternate;
+}
+
+.lcs_internal {
+  fill: var(--gray-200);
+  stroke: var(--gray-400);
+  stroke-width: 1px;
+}
+
+/* Animation for highlighted elements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive styling */
+@media (max-width: 992px) {
+  .tutorial-dialog {
+    width: 250px !important;
+    padding: 1.25rem !important;
+  }
+
+  #build-input.active,
+  #search-input.active,
+  #lcs-input.active {
+    width: 200px;
+  }
+
+  #build-input input,
+  #search-input input {
+    width: 150px;
+  }
+
+  #lcs-input input {
+    width: 75px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tutorial-dialog {
+    width: 220px !important;
+    padding: 1rem !important;
+    font-size: 0.9rem;
+  }
+
+  #build-input.active,
+  #search-input.active,
+  #lcs-input.active {
+    width: 180px;
+  }
+
+  #build-input input,
+  #search-input input {
+    width: 130px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  #lcs-input input {
+    width: 65px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  #build-go.active,
+  #search-go.active,
+  #lcs-go.active {
+    width: 40px;
+  }
+
+  #build-go p,
+  #search-go p,
+  #lcs-go p {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

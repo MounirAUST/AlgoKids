@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Single-Source Shortest Paths</title>
+  <style>
+    body {
+      font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      padding: 40px;
+      max-width: 960px;
+      margin: auto;
+      line-height: 1.8;
+      color: #212529;
+      background-color: #f8f9fa;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+    }
+    h1, h2, h3 {
+      text-align: center;
+      font-weight: 700;
+      color: #4361ee;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+    h1 {
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+    }
+    h2 {
+      position: relative;
+      padding-bottom: 10px;
+    }
+    h2:after {
+      content: "";
+      position: absolute;
+      bottom:  0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(to right, #4361ee, #7209b7);
+      border-radius: 3px;
+    }
+    h3 {
+      color: #7209b7;
+    }
+    .section {
+      margin-bottom: 40px;
+      background-color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      border-left: 3px solid #4361ee;
+      transition: all 0.3s ease;
+    }
+    .section:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transform: translateY(-2px);
+    }
+    .section:nth-child(odd) {
+      border-left-color: #7209b7;
+    }
+    strong {
+      color: #4361ee;
+      font-weight: 700;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    .section h3 {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 4px;
+      background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+      font-size: 1.1rem;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.01);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Single-Source Shortest Paths</h1>
+
+  <div class="section">
+    <h2>1. What is SSSP?</h2>
+    <p><strong>Single-Source Shortest Paths (SSSP)</strong> is the problem of finding the shortest path from one source node to all other nodes in a weighted graph.</p>
+    <p>This is useful for navigation, routing, and solving optimization problems in graphs.</p>
+    <p>In the visual example below, Dijkstra's algorithm starts from node 1 and explores the graph to find the minimum distances to all other nodes:</p>
+    <img src="./img/Sssp.png" alt="SSSP using Dijkstra's Algorithm" />
+  </div>
+
+  <div class="section">
+    <h2>2. Why It’s Important</h2>
+    <p>SSSP algorithms are used in:</p>
+    <ul>
+      <li>GPS and navigation systems</li>
+      <li>Network routing</li>
+      <li>Game pathfinding</li>
+      <li>Project scheduling and more</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Popular Algorithms</h2>
+    <ul>
+      <li><strong>Dijkstra’s Algorithm:</strong> Works with non-negative edge weights</li>
+      <li><strong>Bellman-Ford Algorithm:</strong> Handles negative edge weights</li>
+      <li><strong>BFS:</strong> Used for unweighted graphs to find the shortest number of edges</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Key Concepts</h2>
+    <ul>
+      <li>Priority queues for efficient distance updates</li>
+      <li>Relaxation: improving the shortest path estimate step-by-step</li>
+      <li>Edge weights influence the cost of each path</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Visual Exploration</h2>
+    <p>Try selecting a source node and running different algorithms. Watch how paths are explored and updated:</p>
+    <ul>
+      <li>Compare how Dijkstra and Bellman-Ford behave</li>
+      <li>See step-by-step updates of shortest paths</li>
+      <li>Understand how relaxation works in action</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Summary</h2>
+    <p>SSSP is key for efficient pathfinding in graphs. Learning how different algorithms work and when to use each gives you powerful tools for optimization problems.</p>
+  </div>
+</body>
+</html>

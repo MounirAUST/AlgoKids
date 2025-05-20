@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Resizable Array Details</title>
+    <style>
+    body {
+        font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        padding: 40px;
+        max-width: 960px;
+        margin: auto;
+        line-height: 1.8;
+        color: #212529;
+        background-color: #f8f9fa;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+    }
+
+    h1, h2, h3 {
+        text-align: center;
+        font-weight: 700;
+        color: #4361ee;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+    }
+
+    h1 {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+    }
+
+    h2 {
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    h2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        border-radius: 3px;
+    }
+
+    h3 {
+        color: #7209b7;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+        color: #4361ee;
+        text-decoration: none;
+        border-bottom: 1px dotted #4361ee;
+        transition: all 0.3s ease;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    a:hover {
+        color: #3a56d4;
+        border-bottom: 1px solid #3a56d4;
+    }
+    
+    a:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+    }
+    
+    a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    code {
+        font-family: Consolas, monospace;
+        background: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 4px;
+        color: #7209b7;
+        font-size: 0.9em;
+        border-left: 2px solid #4361ee;
+    }
+
+    ol {
+        padding-left: 20px;
+        counter-reset: item;
+    }
+
+    ol li {
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+    
+    ol li::marker {
+        color: #4361ee;
+        font-weight: bold;
+    }
+
+    .section {
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 3px solid #4361ee;
+        transition: all 0.3s ease;
+    }
+    
+    .section:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+    }
+    
+    .section:nth-child(odd) {
+        border-left-color: #7209b7;
+    }
+    
+    strong {
+        color: #4361ee;
+        font-weight: 700;
+    }
+    
+    p {
+        margin-bottom: 1rem;
+    }
+    
+    /* For the specific numbered containers in the content */
+    .section h3 {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+        font-size: 1.1rem;
+    }
+    
+    /* Subtle section transitions */
+    @media (prefers-reduced-motion: no-preference) {
+        .section {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    }
+</style>
+    </style>
+  </head>
+  <body>
+    <h1>(Resize-able) Array</h1>
+
+    <div class="section">
+      <h2>1. Introduction</h2>
+      <p>
+        Visualization of one of the simplest data structures in Computer
+        Science: <strong>Array</strong> (and its sorted form) surprisingly has
+        not been done in AlgoKids.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>2. Motivation</h2>
+      <p>
+        Arrays are among the easiest and most versatile data structures in
+        Computer Science. Array is built-in almost all programming languages
+        (C++, Python, Java, etc.).
+      </p>
+      <p>
+        We can use arrays to implement List ADTs and solve many classic
+        problems. When not being used as a List ADT, it's often beneficial to
+        sort elements for efficiency.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>2-1. List ADT</h3>
+      <p>See <a href="#">List ADT</a> overview.</p>
+    </div>
+
+    <div class="section">
+      <h3>2-2. Array Implementation (Part 1)</h3>
+      <p>
+        Compact Array means no gap. If the array has N items and size M (M ≥ N),
+        then indices [0..N-1] are used, the rest are empty.
+      </p>
+      <img src="./img/array-compact-1.png" alt="Compact array visual" />
+    </div>
+
+    <div class="section">
+      <h3>2-3. Array Implementation (Part 2)</h3>
+      <p><code>get(i)</code>: return <code>A[i]</code> – O(1)</p>
+      <p>
+        <code>search(v)</code>: check each <code>A[i]</code> – worst case O(N)
+      </p>
+      <p>
+        <code>insert(i, v)</code>: shift right from i, insert v – worst case
+        O(N)
+      </p>
+      <p><code>remove(i)</code>: shift left from i+1 – worst case O(N)</p>
+    </div>
+
+    <div class="section">
+      <h3>2-4. Time Complexity Summary</h3>
+      <ul>
+        <li><strong>get(i):</strong> O(1)</li>
+        <li><strong>search(v):</strong> O(N)</li>
+        <li><strong>insert(i, v):</strong> O(N)</li>
+        <li><strong>remove(i):</strong> O(N)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>2-5. Fixed Space Issue</h3>
+      <p>
+        If M (capacity) is too large → waste of space; too small → out of space
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>2-6. Variable Space</h3>
+      <p>
+        Solution: double the array size when full. Common in
+        <code>std::vector</code>, <code>ArrayList</code>, etc.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>2-7. Compact Array Applications</h3>
+      <ol>
+        <li>Search for a value</li>
+        <li>Find min/max or k-th min/max</li>
+        <li>Remove duplicates</li>
+        <li>Count occurrences</li>
+        <li>Set operations (union/intersection)</li>
+        <li>Find pairs x, y such that x+y=z</li>
+        <li>Range counting</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>3. Actions</h2>
+      <p>Try guessing based on the name of the function.</p>
+    </div>
+
+    <div class="section">
+      <h2>4. Visualizations</h2>
+      <p>This page visualizes two modes: unsorted and sorted arrays.</p>
+    </div>
+
+    <div class="section">
+      <h2>5. (Unsorted) Array</h2>
+      <h3>5-1. Algorithm Ideas (Unsorted)</h3>
+      <ol>
+        <li>O(N) linear search</li>
+        <li>O(N) min/max</li>
+        <li>Nested loop to find duplicates</li>
+        <li>Hash Table for lookup</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>6. (Sorted) Array</h2>
+      <h3>6-1. Algorithm Ideas (Sorted)</h3>
+      <ol>
+        <li>O(log N) binary search</li>
+        <li>Use merge sort ideas</li>
+        <li>Two pointer technique</li>
+      </ol>
+    </div>
+  </body>
+</html>

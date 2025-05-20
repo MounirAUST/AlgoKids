@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Binary Heap Details</title>
+    <style>
+      body {
+        font-family: 'Nunito', 'PT Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        padding: 40px;
+        max-width: 960px;
+        margin: auto;
+        line-height: 1.8;
+        color: #212529;
+        background-color: #f8f9fa;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+      }
+
+      h1, h2, h3 {
+        text-align: center;
+        font-weight: 700;
+        color: #4361ee;
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+
+      h1 {
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(114, 9, 183, 0.1);
+      }
+
+      h2 {
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      h2:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        border-radius: 3px;
+      }
+
+      h3 {
+        color: #7209b7;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      img:hover {
+        transform: scale(1.01);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: #4361ee;
+        text-decoration: none;
+        border-bottom: 1px dotted #4361ee;
+        transition: all 0.3s ease;
+        position: relative;
+        white-space: nowrap;
+      }
+
+      a:hover {
+        color: #3a56d4;
+        border-bottom: 1px solid #3a56d4;
+      }
+
+      a:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+        background: linear-gradient(to right, #4361ee, #7209b7);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+      }
+
+      a:hover:after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+
+      code {
+        font-family: Consolas, monospace;
+        background: #e9ecef;
+        padding: 2px 4px;
+        border-radius: 4px;
+        color: #7209b7;
+        font-size: 0.9em;
+        border-left: 2px solid #4361ee;
+      }
+
+      ol {
+        padding-left: 20px;
+        counter-reset: item;
+      }
+
+      ol li {
+        margin-bottom: 0.5rem;
+        position: relative;
+      }
+
+      ol li::marker {
+        color: #4361ee;
+        font-weight: bold;
+      }
+
+      .section {
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 3px solid #4361ee;
+        transition: all 0.3s ease;
+      }
+
+      .section:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .section:nth-child(odd) {
+        border-left-color: #7209b7;
+      }
+
+      strong {
+        color: #4361ee;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      .section h3 {
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 4px;
+        background: linear-gradient(to right, rgba(67, 97, 238, 0.1), rgba(114, 9, 183, 0.1));
+        font-size: 1.1rem;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .section {
+          animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Binary Heap</h1>
+
+    <div class="section">
+      <h2>1. Introduction</h2>
+      <p>A <strong>Binary Heap</strong> is a type of complete binary tree that maintains a special ordering: either a min-heap (parents are smaller than children) or a max-heap (parents are larger).</p>
+    </div>
+
+    <div class="section">
+      <h2>2. Why Learn Binary Heaps?</h2>
+      <p>Binary heaps are commonly used to implement <code>Priority Queues</code>, an essential structure for handling tasks like CPU scheduling, Dijkstra's algorithm, and heapsort.</p>
+    </div>
+
+    <div class="section">
+      <h3>2-1. Key Concepts</h3>
+      <ol>
+        <li>Heap is always a complete binary tree.</li>
+        <li>Values follow heap ordering (min or max).</li>
+        <li>Stored efficiently using arrays.</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h3>2-2. Array Representation</h3>
+      <p>Instead of tree nodes, heaps are often stored in arrays. For index <code>i</code>:</p>
+      <ul>
+        <li>Left child = <code>2i + 1</code></li>
+        <li>Right child = <code>2i + 2</code></li>
+        <li>Parent = <code>floor((i - 1) / 2)</code></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>2-3. Common Operations</h3>
+      <ul>
+        <li><code>insert(x)</code> → Add to end, bubble up to fix heap</li>
+        <li><code>extractMin()/extractMax()</code> → Remove top, bubble down to restore order</li>
+        <li><code>buildHeap(arr)</code> → Turn unordered array into heap</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>2-4. Time Complexity</h3>
+      <ul>
+        <li><strong>Insert:</strong> O(log N)</li>
+        <li><strong>Extract:</strong> O(log N)</li>
+        <li><strong>Build Heap:</strong> O(N)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>3. Visual Learning</h2>
+      <p>Try inserting and extracting values from the visual tool. Notice how nodes "bubble up" or "sink down" depending on their value. This keeps the heap in proper order!</p>
+      <img src="./img/BinaryHeapVis.png" alt="Binary Heap Visualization" />
+    </div>
+
+    <div class="section">
+      <h2>4. Summary</h2>
+      <p>Binary heaps are easy to build and fast to use for managing ordered elements. Mastering them will help you with sorting, graph algorithms, and real-time task management.</p>
+    </div>
+  </body>
+</html>
